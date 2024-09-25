@@ -3,6 +3,9 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+//var_dump($_SERVER['REQUEST_URI']); //o $_SERVER
+//die();
+
 define('LARAVEL_START', microtime(true));
 
 /*
