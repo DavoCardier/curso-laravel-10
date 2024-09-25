@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -30,6 +30,26 @@
         </header>
         <main class="content">
             <div class="cards">
+          @foreach ($notes as $note)
+            <div class="card card-small">
+             <div class="card-body">
+                <h4>{{ $note }}</h4>
+    
+                    <p>
+                    {{ $note }}
+                 </p>
+            </div>
+    
+            <footer class="card-footer">
+                <a href="link" class="action-link action-edit">
+                    <i class="icon icon-pen"></i>
+                </a>
+                <a class="action-link action-delete">
+                    <i class="icon icon-trash"></i>
+                </a>
+        </footer>
+    </div>
+@endforeach
                 <div class="card card-small">
                     <div class="card-body">
                         <h4>¿Para qué sirve Composer?</h4>
