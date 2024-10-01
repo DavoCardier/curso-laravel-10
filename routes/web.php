@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Note;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +20,12 @@ Route::get('/home', function () {
 });
 
 Route::get('/notes', function () {
-    $notes = Note::query()
-    ->orderByDesc('id')
-    ->get()
-    ;
+   $notes = Note::query()
+       ->orderByDesc('id')
+       ->get()
+   ;
 
-    return view('notes.index')->with('notes', $notes);
+   return view('notes.index')->with('notes', $notes);
 })->name('notes.index');
 
 Route::get('/notes/{id}', function ($id) {
@@ -36,7 +36,17 @@ Route::get('/notes/create', function () {
    return view('notes.create');
 })->name('notes.create');
 
+Route::post('/notes', function (Request $request) {
+    Note::create([
+        'title' => $request->input('title'),
+        'content' => $request->input('content'),
+    ]);
+
+    return back();
+})->name('notes.store');
+
 Route::get('/notes/{id}/editar', function ($id) {
     $note = Note::findOrFail($id);
-        return 'Editar nota: ' . $note->title;
+
+    return 'Editar nota: '.$note->title;
 })->name('notes.edit');
