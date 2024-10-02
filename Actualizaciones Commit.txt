@@ -1,0 +1,21 @@
+Version 0.9[
+    1.- Se agrego carpeta (Lang), con traduccion (es).
+
+    2.- app/Http/Controller se agrego atravez de (php artisan make:Controller NoteController)...
+    en la cual se mudaron todas las logicas de (Web.php).
+
+    3.- En (Web.php) se pusieron las (Route::) directamente con los Controller de NoteController.
+    
+    4.- Se agrego (edit.blade.php) in resources/views/notes donde se muestra la plantilla HTML para...
+    realizar los cambios pertinentes en dicha (note.edit).
+
+    5.- En los controladores se utilizo el (PUT), para realizar los cambios usando un director de LARAVEL
+    @method('PUT')  Ya que directamente HTML no soporta este controlador por si solo.
+
+    6.- /config/app.php  Se coloco la linea (86   'locale' => 'en' a 'es' ) para que pudiera Laravel mostrar
+    los mensajes en Español.
+
+    7.- Se realizaron las ($request->validate) con su logica en las rutas especificas como (edit-create)...
+    lo cual nos forza a que es necesario completar las notas segun los requisitos que estamos exigiendo
+
+]
